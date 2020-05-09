@@ -1,0 +1,65 @@
+{% if not constant('JOURNAL_INSTALLED') %}
+  <h3>Journal Installation Error</h3>
+  <p>Make sure you have uploaded all Journal files to your server and successfully replaced <b>system/engine/front.php</b> file.</p>
+  <p>Please read this: <a href="http://docs.digital-atelier.com/opencart/journal/#/settings/install" target="_blank">here</a>.</p>
+{% endif %}
+</div>
+{% if journal2.settings.get('config_bottom_modules') %}
+  <div id="bottom-modules">
+    {{ journal2.settings.get('config_bottom_modules') }}
+  </div>
+{% endif %}
+<footer class="{{ journal2.settings.get('fullwidth_footer') }}">
+  <div id="footer">
+    {{ journal2.settings.get('config_footer_menu') }}
+  </div>
+  <div class="bottom-footer {{ journal2.settings.get('boxed_bottom') }}">
+    <div class="{{ journal2.settings.get('config_footer_classes') }}">
+      {% if journal2.settings.get('config_copyright') %}
+        <div class="copyright">{{ journal2.settings.get('config_copyright') }}</div>
+      {% endif %}
+      {% if journal2.settings.get('config_payments') %}
+        <div class="payments">
+          {% for payment in journal2.settings.get('config_payments') %}
+            {% if payment.url %}
+              <a href="{{ payment.url }}" {{ payment.target }}><img {{ staticCall('Journal2Utils', 'imgElement', [payment.image, payment.name, payment.width, payment.height]) }} /></a>
+            {% else %}
+              <img {{ staticCall('Journal2Utils', 'imgElement', [payment.image, payment.name, payment.width, payment.height]) }} />
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</footer>
+<div class="scroll-top"></div>
+{{ journal2.settings.get('config_footer_modules') }}
+{{- journal2.minifier.addScript('catalog/view/theme/journal2/js/init.js', 'footer') -}}
+{{ journal2.minifier.js('footer') }}
+{% if journal2.cache.getDeveloperMode() or not journal2.minifier.getMinifyJs() %}
+  <script type="text/javascript" src="index.php?route=journal2/assets/js"></script>
+{% endif %}
+{% if journal2.html_classes.hasClass('is-admin') %}
+  <script src="catalog/view/theme/journal2/lib/ascii-table/ascii-table.min.js"></script>
+  <script>
+    (function () {
+      if (console && console.log) {
+        var timers = $.parseJSON('{{ staticCall('Journal2', 'getTimer') | json_encode() }}');
+        timers['Total'] = parseFloat('{{ staticCall('Journal2', 'getElapsedTime') }}');
+        var table = new AsciiTable('Journal2 Profiler');
+        table.setAlignRight(1);
+        $.each(timers, function (index, value) {
+          if (value < 0) {
+            value = 0;
+          }
+          if (value < 100000) {
+            table.addRow(index.replace('ControllerModuleJournal2', ''), Math.round(value * 1000) + ' ms');
+          }
+        });
+        console.log(table.toString());
+      }
+    }());
+  </script>
+{% endif %}
+</body>
+</html>

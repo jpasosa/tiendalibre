@@ -1,0 +1,21 @@
+
+
+
+Desde el Libre Office al abrir el archivo excel que contiene las telas hacer:
+Guardar COMO
+Tipo CSV
+Configuracion por defecto
+conjunto de caracteres utf-8
+delimitador de campos ,
+delimitador de cadena "
+Y tildar solamente "Guardar contenido de celdas como se muestra"
+
+URL para importacion de productos.
+http://telas/admin/index.php?route=catalog/import/importProducts
+
+controlador en
+admin/controller/catalog/product.php   importProducts()
+
+
+
+

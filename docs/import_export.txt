@@ -1,0 +1,9 @@
+Import/Export PRO uses libraries to process different file formats (xml, csv, ods, xlsx, Google Spreadsheets). Click on green button "Download libraries" to start to download libraries. Please be patient, this process will take some time.
+
+If you receive any error during this process, is because this operation exceeded your server limits. In this case, you have to upload these libraries manually following these steps:
+
+Download .zip libraries with this link.
+Uncompress this zip file you will find a folder called "library"
+Upload this folder inside folder "system", which you can find in the root path of your website.
+Make sure that all files was uploaded correctly.
+After upload process completed, refresh page. If all goes well, this popup won't show again.
