@@ -48,19 +48,50 @@
                       <div class="product-details">
                         <div class="caption">
                           <div class="name"><a href="{{ product.href }}">{{ product.name }}</a></div>
-                          <div class="description">{{ product.description }}</div>
-                          {% if product.price %}
-                            <div class="price">
-                              {% if not product.special %}
-                                {{ product.price }}
-                              {% else %}
-                                <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>
-                              {% endif %}
-                              {% if product.tax %}
-                                <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
-                              {% endif %}
+                            
+
+                            <div class="styled__PricesContainer">
+                                <div class="styled__PriceGridRow">
+                                    <p class="styled__PriceType-sc">
+                                        Por menor<span data-dialog="El precio por mayor es a partir de los 10mts" class="tooltip-info-am"><span></span></span>
+                                    </p>
+                                    <p class="styled__ListPrice-sc-"></p>
+                                    <p class="styled__BestPrice-sc-">$559,00</p>
+                                </div>
+                                <div class="styled__PriceGridRow">
+                                    <p class="styled__PriceType-sc">
+                                        Por mayor<span data-dialog="El precio por mayor es a partir de los 10mts" class="tooltip-info-am"><span></span></span>
+                                    </p>
+                                    <p class="styled__ListPrice-sc-"></p>
+                                    <p class="styled__BestPrice-sc-">$439,00</p>
+                                </div>
+                                <div class="styled__PriceGridRow">
+                                    <p class="styled__PriceType-sc">
+                                        Por pieza<span data-dialog="El precio por mayor es a partir de los 10mts" class="tooltip-info-am"><span></span></span>
+                                    </p>
+                                    <p class="styled__ListPrice-sc-"></p>
+                                    <p class="styled__BestPrice-sc-">$359,00</p>
+                                </div>
                             </div>
-                          {% endif %}
+
+
+                            <div class="description">
+                                {# {{ product.description }} #}
+                            </div>
+                          
+                            {% if product.price %}
+                                <div class="price">
+                                    {# {% if not product.special %}
+                                        {{ product.price }}
+                                    {% else %}
+                                        <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>
+                                    {% endif %}
+                                    {% if product.tax %}
+                                        <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                                    {% endif %} #}
+                                </div>
+                            {% endif %}
+                          
                           {% if product.rating %}
                             <div class="rating">
                               {% for i in 1..5 %}
