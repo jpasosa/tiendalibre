@@ -200,24 +200,24 @@
                         <div class="styled__PricesContainer">
                             <div class="styled__PriceGridRow">
                                 <p class="styled__PriceType-sc">
-                                    Por menor<span data-dialog="El precio por mayor es a partir de los 10mts" class="tooltip-info-am"><span></span></span>
+                                    Por menor<span data-dialog="El precio por menor es a partir de 1mt." class="tooltip-info-am"><span></span></span>
                                 </p>
                                 <p class="styled__ListPrice-sc-"></p>
-                                <p class="styled__BestPrice-sc-">$559,00</p>
+                                <p class="styled__BestPrice-sc-">{{ product.price }}</p>
                             </div>
                             <div class="styled__PriceGridRow">
                                 <p class="styled__PriceType-sc">
-                                    Por mayor<span data-dialog="El precio por mayor es a partir de los 10mts" class="tooltip-info-am"><span></span></span>
+                                    Por mayor<span data-dialog="El precio por mayor es a partir de los {{product.all_prices.por_mayor.quantity}}mts." class="tooltip-info-am"><span></span></span>
                                 </p>
                                 <p class="styled__ListPrice-sc-"></p>
-                                <p class="styled__BestPrice-sc-">$439,00</p>
+                                <p class="styled__BestPrice-sc-">{{product.all_prices.por_mayor.price}}</p>
                             </div>
                             <div class="styled__PriceGridRow">
                                 <p class="styled__PriceType-sc">
-                                    Por pieza<span data-dialog="El precio por mayor es a partir de los 10mts" class="tooltip-info-am"><span></span></span>
+                                    Por pieza<span data-dialog="El precio por pieza es a partir de los {{product.all_prices.por_pieza.quantity}}mts" class="tooltip-info-am"><span></span></span>
                                 </p>
                                 <p class="styled__ListPrice-sc-"></p>
-                                <p class="styled__BestPrice-sc-">$359,00</p>
+                                <p class="styled__BestPrice-sc-">{{product.all_prices.por_pieza.price}}</p>
                             </div>
                         </div>
 
