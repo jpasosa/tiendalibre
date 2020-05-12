@@ -298,7 +298,16 @@ class ControllerProductProduct extends Controller {
 
 			$data['discounts'] = array();
 
-			foreach ($discounts as $discount) {
+			foreach ($discounts as $k => $discount)
+			{
+				if ($k == 0) {
+					$data['all_prices']['por_mayor']['quantity'] = $discount['quantity']; 
+					$data['all_prices']['por_mayor']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']); 
+				} else {
+					$data['all_prices']['por_pieza']['quantity'] = $discount['quantity']; 
+					$data['all_prices']['por_pieza']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']); 
+				}
+
 				$data['discounts'][] = array(
 					'quantity' => $discount['quantity'],
 					'price'    => $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency'])
@@ -339,6 +348,11 @@ class ControllerProductProduct extends Controller {
 					'required'             => $option['required']
 				);
 			}
+
+			// $log_prety = '<pre>' . print_r($data['options'], true) . '</pre>';
+			// var_dump($log_prety);
+			// die();
+		
 
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
