@@ -297,7 +297,10 @@ class ControllerProductProduct extends Controller {
 			$discounts = $this->model_catalog_product->getProductDiscounts($this->request->get['product_id']);
 
 			$data['discounts'] = array();
-
+			$data['all_prices']['por_mayor']['quantity'] = '1';
+			$data['all_prices']['por_mayor']['price'] = '0,00';
+			$data['all_prices']['por_pieza']['quantity'] = '1';
+			$data['all_prices']['por_pieza']['price'] = '0,00';
 			foreach ($discounts as $k => $discount)
 			{
 				if ($k == 0) {

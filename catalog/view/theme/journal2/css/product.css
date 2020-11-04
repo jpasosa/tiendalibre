@@ -212,7 +212,7 @@ PRODUCT PAGE
         text-align: center;
         height: 100%;
         float: left;
-        line-height: 37px;
+        line-height: 40px;
         font-size: 25px;
         font-style: normal;
         font-weight: bold;
@@ -296,7 +296,7 @@ PRODUCT PAGE
       display: inline-block;
       padding: 0 7px;
       margin: 4px 6px 0 0;
-      line-height: 23px;
+      line-height: 25px;
       cursor: pointer;
       transition: all .2s; }
       .product-info .option ul li span {

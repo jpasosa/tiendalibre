@@ -544,102 +544,124 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
                 // line 195
                 echo "                </div>
                 <div class=\"product-details\">
-                  <div class=\"caption\">
-                    <h4 class=\"name\"><a href=\"";
+                    <div class=\"caption\">
+                        <h4 class=\"name\"><a href=\"";
                 // line 198
                 echo $this->getAttribute($context["product"], "href", array());
                 echo "\">";
                 echo $this->getAttribute($context["product"], "name", array());
                 echo "</a></h4>
-                    <p class=\"description\">";
-                // line 199
-                echo $this->getAttribute($context["product"], "description", array());
+                        
+                        <div class=\"styled__PricesContainer\">
+                            <div class=\"styled__PriceGridRow\">
+                                <p class=\"styled__PriceType-sc\">
+                                    Por menor<span data-dialog=\"El precio por menor es a partir de 1mt.\" class=\"tooltip-info-am\"><span></span></span>
+                                </p>
+                                <p class=\"styled__ListPrice-sc-\"></p>
+                                <p class=\"styled__BestPrice-sc-\">";
+                // line 206
+                echo $this->getAttribute($context["product"], "price", array());
                 echo "</p>
-                    ";
-                // line 200
+                            </div>
+                            <div class=\"styled__PriceGridRow\">
+                                <p class=\"styled__PriceType-sc\">
+                                    Por mayor<span data-dialog=\"El precio por mayor es a partir de los ";
+                // line 210
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_mayor", array()), "quantity", array());
+                echo "mts.\" class=\"tooltip-info-am\"><span></span></span>
+                                </p>
+                                <p class=\"styled__ListPrice-sc-\"></p>
+                                <p class=\"styled__BestPrice-sc-\">";
+                // line 213
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_mayor", array()), "price", array());
+                echo "</p>
+                            </div>
+                            <div class=\"styled__PriceGridRow\">
+                                <p class=\"styled__PriceType-sc\">
+                                    Por pieza<span data-dialog=\"El precio por pieza es a partir de los ";
+                // line 217
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_pieza", array()), "quantity", array());
+                echo "mts\" class=\"tooltip-info-am\"><span></span></span>
+                                </p>
+                                <p class=\"styled__ListPrice-sc-\"></p>
+                                <p class=\"styled__BestPrice-sc-\">";
+                // line 220
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_pieza", array()), "price", array());
+                echo "</p>
+                            </div>
+                        </div>
+
+
+                        <p class=\"description\">
+                            ";
+                // line 227
+                echo "                        </p>
+
+
+                        ";
+                // line 230
                 if ($this->getAttribute($context["product"], "price", array())) {
-                    // line 201
-                    echo "                      <div class=\"price\">
-                        ";
-                    // line 202
-                    if ( !$this->getAttribute($context["product"], "special", array())) {
-                        // line 203
-                        echo "                          ";
-                        echo $this->getAttribute($context["product"], "price", array());
-                        echo "
-                        ";
-                    } else {
-                        // line 205
-                        echo "                          <span class=\"price-old\">";
-                        echo $this->getAttribute($context["product"], "price", array());
-                        echo "</span> <span class=\"price-new\" ";
-                        if ($this->getAttribute($context["product"], "date_end", array())) {
-                            echo "data-end-date=\"";
-                            echo $this->getAttribute($context["product"], "date_end", array());
-                            echo "\"";
-                        }
-                        echo ">";
-                        echo $this->getAttribute($context["product"], "special", array());
-                        echo "</span>
-                        ";
-                    }
-                    // line 207
-                    echo "                      </div>
-                      ";
-                    // line 208
+                    // line 231
+                    echo "                            <div class=\"price\">
+                                ";
+                    // line 239
+                    echo "                            </div>
+                            ";
+                    // line 240
                     if ($this->getAttribute($context["product"], "tax", array())) {
-                        // line 209
-                        echo "                        <span class=\"price-tax\">";
+                        // line 241
+                        echo "                                <span class=\"price-tax\">";
                         echo (isset($context["text_tax"]) ? $context["text_tax"] : null);
                         echo " ";
                         echo $this->getAttribute($context["product"], "tax", array());
                         echo "</span>
-                      ";
+                            ";
                     }
-                    // line 211
-                    echo "                    ";
+                    // line 243
+                    echo "                        ";
                 }
-                // line 212
-                echo "                    ";
+                // line 244
+                echo "                        ";
                 if ($this->getAttribute($context["product"], "rating", array())) {
-                    // line 213
-                    echo "                      <div class=\"rating\">
-                        ";
-                    // line 214
+                    // line 245
+                    echo "                            <div class=\"rating\">
+                                ";
+                    // line 246
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(range(1, 5));
                     foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                        // line 215
-                        echo "                          ";
+                        // line 247
+                        echo "                                    ";
                         if (($this->getAttribute($context["product"], "rating", array()) < $context["i"])) {
-                            // line 216
-                            echo "                            <span class=\"fa fa-stack\"><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
-                          ";
+                            // line 248
+                            echo "                                        <span class=\"fa fa-stack\"><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
+                                    ";
                         } else {
-                            // line 218
-                            echo "                            <span class=\"fa fa-stack\"><i class=\"fa fa-star fa-stack-2x\"></i><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
-                          ";
+                            // line 250
+                            echo "                                        <span class=\"fa fa-stack\"><i class=\"fa fa-star fa-stack-2x\"></i><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
+                                    ";
                         }
-                        // line 220
-                        echo "                        ";
+                        // line 252
+                        echo "                                ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 221
-                    echo "                      </div>
-                    ";
+                    // line 253
+                    echo "                            </div>
+                        ";
                 }
-                // line 223
-                echo "                  </div>
-                  <div class=\"button-group\">
-                    ";
-                // line 225
+                // line 255
+                echo "                    </div>
+
+                    <div class=\"button-group\">
+                        ";
+                // line 258
                 if (call_user_func_array($this->env->getFunction('staticCall')->getCallable(), array("Journal2Utils", "isEnquiryProduct", array(0 => null, 1 => $context["product"])))) {
-                    // line 226
-                    echo "                      <div class=\"cart enquiry-button\">
-                        <a href=\"javascript:Journal.openPopup('";
-                    // line 227
+                    // line 259
+                    echo "                            <div class=\"cart enquiry-button\">
+                                <a href=\"javascript:Journal.openPopup('";
+                    // line 260
                     echo $this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "enquiry_popup_code"), "method");
                     echo "', '";
                     echo $this->getAttribute($context["product"], "product_id", array());
@@ -652,17 +674,17 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
                     echo "<span class=\"button-cart-text\">";
                     echo $this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "enquiry_button_text"), "method");
                     echo "</span></a>
-                      </div>
-                    ";
+                            </div>
+                        ";
                 } else {
-                    // line 230
-                    echo "                      <div class=\"cart ";
+                    // line 263
+                    echo "                            <div class=\"cart ";
                     if (($this->getAttribute($context["product"], "labels", array()) && $this->getAttribute($this->getAttribute($context["product"], "labels", array()), "outofstock", array()))) {
                         echo " outofstock ";
                     }
                     echo "\">
-                        <a onclick=\"addToCart('";
-                    // line 231
+                                <a onclick=\"addToCart('";
+                    // line 264
                     echo $this->getAttribute($context["product"], "product_id", array());
                     echo "', '";
                     echo $this->getAttribute($context["product"], "minimum", array());
@@ -671,26 +693,26 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
                     echo "\"><i class=\"button-left-icon\"></i><span class=\"button-cart-text\">";
                     echo (isset($context["button_cart"]) ? $context["button_cart"] : null);
                     echo "</span><i class=\"button-right-icon\"></i></a>
-                      </div>
-                    ";
+                            </div>
+                        ";
                 }
-                // line 234
-                echo "                    <div class=\"wishlist\"><a onclick=\"addToWishList('";
+                // line 267
+                echo "                        <div class=\"wishlist\"><a onclick=\"addToWishList('";
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "');\" class=\"hint--top\" data-hint=\"";
                 echo (isset($context["button_wishlist"]) ? $context["button_wishlist"] : null);
                 echo "\"><i class=\"wishlist-icon\"></i><span class=\"button-wishlist-text\">";
                 echo (isset($context["button_wishlist"]) ? $context["button_wishlist"] : null);
                 echo "</span></a></div>
-                    <div class=\"compare\"><a onclick=\"addToCompare('";
-                // line 235
+                        <div class=\"compare\"><a onclick=\"addToCompare('";
+                // line 268
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "');\" class=\"hint--top\" data-hint=\"";
                 echo (isset($context["button_compare"]) ? $context["button_compare"] : null);
                 echo "\"><i class=\"compare-icon\"></i><span class=\"button-compare-text\">";
                 echo (isset($context["button_compare"]) ? $context["button_compare"] : null);
                 echo "</span></a></div>
-                  </div>
+                    </div>
                 </div>
               </div>
             </div>
@@ -699,33 +721,33 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 241
+            // line 274
             echo "        </div>
 
         <div class=\"row pagination\">
           <div class=\"col-sm-6 text-left links\">";
-            // line 244
+            // line 277
             echo (isset($context["pagination"]) ? $context["pagination"] : null);
             echo "</div>
           <div class=\"col-sm-6 text-right results\">";
-            // line 245
+            // line 278
             echo (isset($context["results"]) ? $context["results"] : null);
             echo "</div>
         </div>
       ";
         }
-        // line 248
+        // line 281
         echo "
       ";
-        // line 249
+        // line 282
         if (( !(isset($context["categories"]) ? $context["categories"] : null) &&  !(isset($context["products"]) ? $context["products"] : null))) {
-            // line 250
+            // line 283
             echo "        <p>";
             echo (isset($context["text_empty"]) ? $context["text_empty"] : null);
             echo "</p>
         <div class=\"buttons\">
           <div class=\"pull-right\"><a href=\"";
-            // line 252
+            // line 285
             echo (isset($context["continue"]) ? $context["continue"] : null);
             echo "\" class=\"btn btn-primary button\">";
             echo (isset($context["button_continue"]) ? $context["button_continue"] : null);
@@ -733,26 +755,26 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
         </div>
       ";
         }
-        // line 255
+        // line 288
         echo "      ";
         echo (isset($context["content_bottom"]) ? $context["content_bottom"] : null);
         echo "</div>
   </div>
   <script>Journal.applyView('";
-        // line 257
+        // line 290
         echo $this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "product_view", 1 => "grid"), "method");
         echo "');</script>
   ";
-        // line 258
+        // line 291
         if (($this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "show_countdown", 1 => "never"), "method") != "never")) {
-            // line 259
+            // line 292
             echo "    <script>Journal.enableCountdown();</script>
   ";
         }
-        // line 261
+        // line 294
         echo "</div>
 ";
-        // line 262
+        // line 295
         echo (isset($context["footer"]) ? $context["footer"] : null);
         echo "
 ";
@@ -770,7 +792,7 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
 
     public function getDebugInfo()
     {
-        return array (  756 => 262,  753 => 261,  749 => 259,  747 => 258,  743 => 257,  737 => 255,  729 => 252,  723 => 250,  721 => 249,  718 => 248,  712 => 245,  708 => 244,  703 => 241,  687 => 235,  678 => 234,  666 => 231,  659 => 230,  643 => 227,  640 => 226,  638 => 225,  634 => 223,  630 => 221,  624 => 220,  620 => 218,  616 => 216,  613 => 215,  609 => 214,  606 => 213,  603 => 212,  600 => 211,  592 => 209,  590 => 208,  587 => 207,  573 => 205,  567 => 203,  565 => 202,  562 => 201,  560 => 200,  556 => 199,  550 => 198,  545 => 195,  536 => 193,  527 => 192,  524 => 191,  513 => 189,  509 => 188,  492 => 185,  488 => 179,  484 => 178,  480 => 177,  476 => 176,  472 => 175,  462 => 174,  456 => 173,  450 => 172,  445 => 171,  441 => 170,  433 => 169,  427 => 165,  421 => 164,  413 => 162,  405 => 160,  402 => 159,  398 => 158,  393 => 156,  389 => 154,  383 => 153,  375 => 151,  367 => 149,  364 => 148,  360 => 147,  355 => 145,  349 => 144,  344 => 142,  340 => 141,  335 => 138,  333 => 137,  330 => 136,  325 => 133,  314 => 131,  310 => 130,  303 => 127,  301 => 126,  298 => 125,  290 => 119,  284 => 118,  280 => 117,  276 => 116,  268 => 115,  260 => 110,  232 => 85,  228 => 83,  226 => 81,  225 => 80,  224 => 79,  223 => 78,  222 => 77,  220 => 76,  218 => 75,  211 => 70,  192 => 67,  187 => 66,  183 => 65,  176 => 63,  172 => 61,  170 => 60,  167 => 59,  158 => 52,  139 => 49,  134 => 48,  130 => 47,  127 => 46,  125 => 45,  122 => 44,  118 => 42,  112 => 40,  109 => 39,  97 => 37,  95 => 36,  92 => 35,  90 => 34,  86 => 33,  82 => 32,  77 => 31,  74 => 30,  71 => 29,  68 => 28,  65 => 27,  62 => 26,  59 => 25,  57 => 24,  52 => 23,  49 => 22,  38 => 20,  34 => 19,  28 => 15,  25 => 10,  19 => 1,);
+        return array (  778 => 295,  775 => 294,  771 => 292,  769 => 291,  765 => 290,  759 => 288,  751 => 285,  745 => 283,  743 => 282,  740 => 281,  734 => 278,  730 => 277,  725 => 274,  709 => 268,  700 => 267,  688 => 264,  681 => 263,  665 => 260,  662 => 259,  660 => 258,  655 => 255,  651 => 253,  645 => 252,  641 => 250,  637 => 248,  634 => 247,  630 => 246,  627 => 245,  624 => 244,  621 => 243,  613 => 241,  611 => 240,  608 => 239,  605 => 231,  603 => 230,  598 => 227,  589 => 220,  583 => 217,  576 => 213,  570 => 210,  563 => 206,  550 => 198,  545 => 195,  536 => 193,  527 => 192,  524 => 191,  513 => 189,  509 => 188,  492 => 185,  488 => 179,  484 => 178,  480 => 177,  476 => 176,  472 => 175,  462 => 174,  456 => 173,  450 => 172,  445 => 171,  441 => 170,  433 => 169,  427 => 165,  421 => 164,  413 => 162,  405 => 160,  402 => 159,  398 => 158,  393 => 156,  389 => 154,  383 => 153,  375 => 151,  367 => 149,  364 => 148,  360 => 147,  355 => 145,  349 => 144,  344 => 142,  340 => 141,  335 => 138,  333 => 137,  330 => 136,  325 => 133,  314 => 131,  310 => 130,  303 => 127,  301 => 126,  298 => 125,  290 => 119,  284 => 118,  280 => 117,  276 => 116,  268 => 115,  260 => 110,  232 => 85,  228 => 83,  226 => 81,  225 => 80,  224 => 79,  223 => 78,  222 => 77,  220 => 76,  218 => 75,  211 => 70,  192 => 67,  187 => 66,  183 => 65,  176 => 63,  172 => 61,  170 => 60,  167 => 59,  158 => 52,  139 => 49,  134 => 48,  130 => 47,  127 => 46,  125 => 45,  122 => 44,  118 => 42,  112 => 40,  109 => 39,  97 => 37,  95 => 36,  92 => 35,  90 => 34,  86 => 33,  82 => 32,  77 => 31,  74 => 30,  71 => 29,  68 => 28,  65 => 27,  62 => 26,  59 => 25,  57 => 24,  52 => 23,  49 => 22,  38 => 20,  34 => 19,  28 => 15,  25 => 10,  19 => 1,);
     }
 }
 /* {{ header }}*/
@@ -969,46 +991,79 @@ class __TwigTemplate_4f31387ce46505e9132aebc4122993555f4b31ea844e9b067ffb5c74d99
 /*                   {% endif %}*/
 /*                 </div>*/
 /*                 <div class="product-details">*/
-/*                   <div class="caption">*/
-/*                     <h4 class="name"><a href="{{ product.href }}">{{ product.name }}</a></h4>*/
-/*                     <p class="description">{{ product.description }}</p>*/
-/*                     {% if product.price %}*/
-/*                       <div class="price">*/
-/*                         {% if not product.special %}*/
-/*                           {{ product.price }}*/
-/*                         {% else %}*/
-/*                           <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>*/
+/*                     <div class="caption">*/
+/*                         <h4 class="name"><a href="{{ product.href }}">{{ product.name }}</a></h4>*/
+/*                         */
+/*                         <div class="styled__PricesContainer">*/
+/*                             <div class="styled__PriceGridRow">*/
+/*                                 <p class="styled__PriceType-sc">*/
+/*                                     Por menor<span data-dialog="El precio por menor es a partir de 1mt." class="tooltip-info-am"><span></span></span>*/
+/*                                 </p>*/
+/*                                 <p class="styled__ListPrice-sc-"></p>*/
+/*                                 <p class="styled__BestPrice-sc-">{{ product.price }}</p>*/
+/*                             </div>*/
+/*                             <div class="styled__PriceGridRow">*/
+/*                                 <p class="styled__PriceType-sc">*/
+/*                                     Por mayor<span data-dialog="El precio por mayor es a partir de los {{product.all_prices.por_mayor.quantity}}mts." class="tooltip-info-am"><span></span></span>*/
+/*                                 </p>*/
+/*                                 <p class="styled__ListPrice-sc-"></p>*/
+/*                                 <p class="styled__BestPrice-sc-">{{product.all_prices.por_mayor.price}}</p>*/
+/*                             </div>*/
+/*                             <div class="styled__PriceGridRow">*/
+/*                                 <p class="styled__PriceType-sc">*/
+/*                                     Por pieza<span data-dialog="El precio por pieza es a partir de los {{product.all_prices.por_pieza.quantity}}mts" class="tooltip-info-am"><span></span></span>*/
+/*                                 </p>*/
+/*                                 <p class="styled__ListPrice-sc-"></p>*/
+/*                                 <p class="styled__BestPrice-sc-">{{product.all_prices.por_pieza.price}}</p>*/
+/*                             </div>*/
+/*                         </div>*/
+/* */
+/* */
+/*                         <p class="description">*/
+/*                             {# {{ product.description }} #}*/
+/*                         </p>*/
+/* */
+/* */
+/*                         {% if product.price %}*/
+/*                             <div class="price">*/
+/*                                 {#*/
+/*                                     {% if not product.special %}*/
+/*                                         {{ product.price }}*/
+/*                                     {% else %}*/
+/*                                         <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>*/
+/*                                     {% endif %}*/
+/*                                 #}*/
+/*                             </div>*/
+/*                             {% if product.tax %}*/
+/*                                 <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>*/
+/*                             {% endif %}*/
 /*                         {% endif %}*/
-/*                       </div>*/
-/*                       {% if product.tax %}*/
-/*                         <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>*/
-/*                       {% endif %}*/
-/*                     {% endif %}*/
-/*                     {% if product.rating %}*/
-/*                       <div class="rating">*/
-/*                         {% for i in 1..5 %}*/
-/*                           {% if product.rating < i %}*/
-/*                             <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>*/
-/*                           {% else %}*/
-/*                             <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>*/
-/*                           {% endif %}*/
-/*                         {% endfor %}*/
-/*                       </div>*/
-/*                     {% endif %}*/
-/*                   </div>*/
-/*                   <div class="button-group">*/
-/*                     {% if staticCall('Journal2Utils', 'isEnquiryProduct', [null, product]) %}*/
-/*                       <div class="cart enquiry-button">*/
-/*                         <a href="javascript:Journal.openPopup('{{ journal2.settings.get('enquiry_popup_code') }}', '{{ product.product_id }}');" data-clk="addToCart('{{ product.product_id }}');" class="button hint--top" data-hint="{{ journal2.settings.get('enquiry_button_text') }}">{{ journal2.settings.get('enquiry_button_icon') }}<span class="button-cart-text">{{ journal2.settings.get('enquiry_button_text') }}</span></a>*/
-/*                       </div>*/
-/*                     {% else %}*/
-/*                       <div class="cart {% if product.labels and product.labels.outofstock %} outofstock {% endif %}">*/
-/*                         <a onclick="addToCart('{{ product.product_id }}', '{{ product.minimum }}');" class="button hint--top" data-hint="{{ button_cart }}"><i class="button-left-icon"></i><span class="button-cart-text">{{ button_cart }}</span><i class="button-right-icon"></i></a>*/
-/*                       </div>*/
-/*                     {% endif %}*/
-/*                     <div class="wishlist"><a onclick="addToWishList('{{ product.product_id }}');" class="hint--top" data-hint="{{ button_wishlist }}"><i class="wishlist-icon"></i><span class="button-wishlist-text">{{ button_wishlist }}</span></a></div>*/
-/*                     <div class="compare"><a onclick="addToCompare('{{ product.product_id }}');" class="hint--top" data-hint="{{ button_compare }}"><i class="compare-icon"></i><span class="button-compare-text">{{ button_compare }}</span></a></div>*/
-/*                   </div>*/
+/*                         {% if product.rating %}*/
+/*                             <div class="rating">*/
+/*                                 {% for i in 1..5 %}*/
+/*                                     {% if product.rating < i %}*/
+/*                                         <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>*/
+/*                                     {% else %}*/
+/*                                         <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>*/
+/*                                     {% endif %}*/
+/*                                 {% endfor %}*/
+/*                             </div>*/
+/*                         {% endif %}*/
+/*                     </div>*/
+/* */
+/*                     <div class="button-group">*/
+/*                         {% if staticCall('Journal2Utils', 'isEnquiryProduct', [null, product]) %}*/
+/*                             <div class="cart enquiry-button">*/
+/*                                 <a href="javascript:Journal.openPopup('{{ journal2.settings.get('enquiry_popup_code') }}', '{{ product.product_id }}');" data-clk="addToCart('{{ product.product_id }}');" class="button hint--top" data-hint="{{ journal2.settings.get('enquiry_button_text') }}">{{ journal2.settings.get('enquiry_button_icon') }}<span class="button-cart-text">{{ journal2.settings.get('enquiry_button_text') }}</span></a>*/
+/*                             </div>*/
+/*                         {% else %}*/
+/*                             <div class="cart {% if product.labels and product.labels.outofstock %} outofstock {% endif %}">*/
+/*                                 <a onclick="addToCart('{{ product.product_id }}', '{{ product.minimum }}');" class="button hint--top" data-hint="{{ button_cart }}"><i class="button-left-icon"></i><span class="button-cart-text">{{ button_cart }}</span><i class="button-right-icon"></i></a>*/
+/*                             </div>*/
+/*                         {% endif %}*/
+/*                         <div class="wishlist"><a onclick="addToWishList('{{ product.product_id }}');" class="hint--top" data-hint="{{ button_wishlist }}"><i class="wishlist-icon"></i><span class="button-wishlist-text">{{ button_wishlist }}</span></a></div>*/
+/*                         <div class="compare"><a onclick="addToCompare('{{ product.product_id }}');" class="hint--top" data-hint="{{ button_compare }}"><i class="compare-icon"></i><span class="button-compare-text">{{ button_compare }}</span></a></div>*/
+/*                     </div>*/
 /*                 </div>*/
 /*               </div>*/
 /*             </div>*/

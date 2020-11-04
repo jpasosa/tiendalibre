@@ -460,94 +460,104 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
                 echo "\">";
                 echo $this->getAttribute($context["product"], "name", array());
                 echo "</a></h4>
-                    <p class=\"description\">";
-                // line 131
-                echo $this->getAttribute($context["product"], "description", array());
+                        
+                        <div class=\"styled__PricesContainer\">
+                            <div class=\"styled__PriceGridRow\">
+                                <p class=\"styled__PriceType-sc\">
+                                    Por menor<span data-dialog=\"El precio por menor es a partir de 1mt.\" class=\"tooltip-info-am\"><span></span></span>
+                                </p>
+                                <p class=\"styled__ListPrice-sc-\"></p>
+                                <p class=\"styled__BestPrice-sc-\">";
+                // line 138
+                echo $this->getAttribute($context["product"], "price", array());
                 echo "</p>
-                    ";
-                // line 132
+                            </div>
+                            <div class=\"styled__PriceGridRow\">
+                                <p class=\"styled__PriceType-sc\">
+                                    Por mayor<span data-dialog=\"El precio por mayor es a partir de los ";
+                // line 142
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_mayor", array()), "quantity", array());
+                echo "mts.\" class=\"tooltip-info-am\"><span></span></span>
+                                </p>
+                                <p class=\"styled__ListPrice-sc-\"></p>
+                                <p class=\"styled__BestPrice-sc-\">";
+                // line 145
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_mayor", array()), "price", array());
+                echo "</p>
+                            </div>
+                            <div class=\"styled__PriceGridRow\">
+                                <p class=\"styled__PriceType-sc\">
+                                   Por pieza<span data-dialog=\"El precio por pieza es a partir de los ";
+                // line 149
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_pieza", array()), "quantity", array());
+                echo "mts\" class=\"tooltip-info-am\"><span></span></span>
+                                </p>
+                                <p class=\"styled__ListPrice-sc-\"></p>
+                                <p class=\"styled__BestPrice-sc-\">";
+                // line 152
+                echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_pieza", array()), "price", array());
+                echo "</p>
+                            </div>
+                        </div>
+                        
+                        <p class=\"description\">
+                            ";
+                // line 158
+                echo "                        </p>
+                        
+                        ";
+                // line 160
                 if ($this->getAttribute($context["product"], "price", array())) {
-                    // line 133
-                    echo "                      <div class=\"price\">
+                    // line 161
+                    echo "                            <div class=\"price\">
+                                ";
+                    // line 170
+                    echo "                            </div>
                         ";
-                    // line 134
-                    if ( !$this->getAttribute($context["product"], "special", array())) {
-                        // line 135
-                        echo "                          ";
-                        echo $this->getAttribute($context["product"], "price", array());
-                        echo "
-                        ";
-                    } else {
-                        // line 137
-                        echo "                          <span class=\"price-old\">";
-                        echo $this->getAttribute($context["product"], "price", array());
-                        echo "</span> <span class=\"price-new\" ";
-                        if ($this->getAttribute($context["product"], "date_end", array())) {
-                            echo "data-end-date=\"";
-                            echo $this->getAttribute($context["product"], "date_end", array());
-                            echo "\"";
-                        }
-                        echo ">";
-                        echo $this->getAttribute($context["product"], "special", array());
-                        echo "</span>
-                        ";
-                    }
-                    // line 139
-                    echo "                        ";
-                    if ($this->getAttribute($context["product"], "tax", array())) {
-                        // line 140
-                        echo "                          <span class=\"price-tax\">";
-                        echo (isset($context["text_tax"]) ? $context["text_tax"] : null);
-                        echo " ";
-                        echo $this->getAttribute($context["product"], "tax", array());
-                        echo "</span>
-                        ";
-                    }
-                    // line 142
-                    echo "                      </div>
-                    ";
                 }
-                // line 144
-                echo "                    ";
+                // line 172
+                echo "                    
+                    ";
+                // line 173
                 if ($this->getAttribute($context["product"], "rating", array())) {
-                    // line 145
+                    // line 174
                     echo "                      <div class=\"rating\">
                         ";
-                    // line 146
+                    // line 175
                     $context['_parent'] = $context;
                     $context['_seq'] = twig_ensure_traversable(range(1, 5));
                     foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                        // line 147
+                        // line 176
                         echo "                          ";
                         if (($this->getAttribute($context["product"], "rating", array()) < $context["i"])) {
-                            // line 148
+                            // line 177
                             echo "                            <span class=\"fa fa-stack\"><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
                           ";
                         } else {
-                            // line 150
+                            // line 179
                             echo "                            <span class=\"fa fa-stack\"><i class=\"fa fa-star fa-stack-2x\"></i><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
                           ";
                         }
-                        // line 152
+                        // line 181
                         echo "                        ";
                     }
                     $_parent = $context['_parent'];
                     unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
                     $context = array_intersect_key($context, $_parent) + $_parent;
-                    // line 153
+                    // line 182
                     echo "                      </div>
                     ";
                 }
-                // line 155
+                // line 184
                 echo "                  </div>
                   <div class=\"button-group\">
                     ";
-                // line 157
+                // line 186
                 if (call_user_func_array($this->env->getFunction('staticCall')->getCallable(), array("Journal2Utils", "isEnquiryProduct", array(0 => null, 1 => $context["product"])))) {
-                    // line 158
+                    // line 187
                     echo "                      <div class=\"cart enquiry-button\">
                         <a href=\"javascript:Journal.openPopup('";
-                    // line 159
+                    // line 188
                     echo $this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "enquiry_popup_code"), "method");
                     echo "', '";
                     echo $this->getAttribute($context["product"], "product_id", array());
@@ -563,14 +573,14 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
                       </div>
                     ";
                 } else {
-                    // line 162
+                    // line 191
                     echo "                      <div class=\"cart ";
                     if (($this->getAttribute($context["product"], "labels", array()) && $this->getAttribute($this->getAttribute($context["product"], "labels", array()), "outofstock", array()))) {
                         echo " outofstock ";
                     }
                     echo "\">
                         <a onclick=\"addToCart('";
-                    // line 163
+                    // line 192
                     echo $this->getAttribute($context["product"], "product_id", array());
                     echo "', '";
                     echo $this->getAttribute($context["product"], "minimum", array());
@@ -582,7 +592,7 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
                       </div>
                     ";
                 }
-                // line 166
+                // line 195
                 echo "                    <div class=\"wishlist\"><a onclick=\"addToWishList('";
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "');\" class=\"hint--top\" data-hint=\"";
@@ -591,7 +601,7 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
                 echo (isset($context["button_wishlist"]) ? $context["button_wishlist"] : null);
                 echo "</span></a></div>
                     <div class=\"compare\"><a onclick=\"addToCompare('";
-                // line 167
+                // line 196
                 echo $this->getAttribute($context["product"], "product_id", array());
                 echo "');\" class=\"hint--top\" data-hint=\"";
                 echo (isset($context["button_compare"]) ? $context["button_compare"] : null);
@@ -607,43 +617,43 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 173
+            // line 202
             echo "        </div>
         <div class=\"row pagination\">
           <div class=\"col-sm-6 text-left links\">";
-            // line 175
+            // line 204
             echo (isset($context["pagination"]) ? $context["pagination"] : null);
             echo "</div>
           <div class=\"col-sm-6 text-right results\">";
-            // line 176
+            // line 205
             echo (isset($context["results"]) ? $context["results"] : null);
             echo "</div>
         </div>
       ";
         } else {
-            // line 179
+            // line 208
             echo "        <p>";
             echo (isset($context["text_empty"]) ? $context["text_empty"] : null);
             echo "</p>
       ";
         }
-        // line 181
+        // line 210
         echo "      ";
         echo (isset($context["content_bottom"]) ? $context["content_bottom"] : null);
         echo "</div>
   </div>
   <script>Journal.applyView('";
-        // line 183
+        // line 212
         echo $this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "product_view", 1 => "grid"), "method");
         echo "');</script>
   ";
-        // line 184
+        // line 213
         if (($this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "show_countdown", 1 => "never"), "method") != "never")) {
-            // line 185
+            // line 214
             echo "    <script>Journal.enableCountdown();</script>
   ";
         }
-        // line 187
+        // line 216
         echo "</div>
 <script type=\"text/javascript\"><!--
   \$('#button-search').bind('click', function () {
@@ -693,7 +703,7 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
   \$('select[name=\\'category_id\\']').trigger('change');
   --></script>
 ";
-        // line 235
+        // line 264
         echo (isset($context["footer"]) ? $context["footer"] : null);
         echo "
 ";
@@ -711,7 +721,7 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
 
     public function getDebugInfo()
     {
-        return array (  697 => 235,  647 => 187,  643 => 185,  641 => 184,  637 => 183,  631 => 181,  625 => 179,  619 => 176,  615 => 175,  611 => 173,  595 => 167,  586 => 166,  574 => 163,  567 => 162,  551 => 159,  548 => 158,  546 => 157,  542 => 155,  538 => 153,  532 => 152,  528 => 150,  524 => 148,  521 => 147,  517 => 146,  514 => 145,  511 => 144,  507 => 142,  499 => 140,  496 => 139,  482 => 137,  476 => 135,  474 => 134,  471 => 133,  469 => 132,  465 => 131,  459 => 130,  454 => 127,  445 => 125,  436 => 124,  433 => 123,  422 => 121,  418 => 120,  402 => 117,  398 => 116,  394 => 115,  390 => 114,  386 => 113,  382 => 112,  372 => 111,  366 => 110,  360 => 109,  355 => 108,  351 => 107,  343 => 106,  338 => 103,  332 => 102,  324 => 100,  316 => 98,  313 => 97,  309 => 96,  304 => 94,  300 => 92,  294 => 91,  286 => 89,  278 => 87,  275 => 86,  271 => 85,  266 => 83,  260 => 82,  255 => 80,  251 => 79,  247 => 77,  245 => 76,  241 => 75,  235 => 72,  226 => 67,  222 => 65,  218 => 63,  216 => 62,  208 => 58,  204 => 56,  200 => 54,  198 => 53,  192 => 49,  186 => 48,  180 => 47,  174 => 46,  166 => 44,  158 => 42,  155 => 41,  150 => 40,  142 => 38,  134 => 36,  131 => 35,  126 => 34,  118 => 32,  110 => 30,  107 => 29,  103 => 28,  99 => 27,  90 => 23,  84 => 20,  80 => 19,  76 => 18,  71 => 17,  68 => 16,  65 => 15,  62 => 14,  59 => 13,  56 => 12,  53 => 11,  51 => 10,  46 => 9,  43 => 8,  32 => 6,  28 => 5,  22 => 2,  19 => 1,);
+        return array (  707 => 264,  657 => 216,  653 => 214,  651 => 213,  647 => 212,  641 => 210,  635 => 208,  629 => 205,  625 => 204,  621 => 202,  605 => 196,  596 => 195,  584 => 192,  577 => 191,  561 => 188,  558 => 187,  556 => 186,  552 => 184,  548 => 182,  542 => 181,  538 => 179,  534 => 177,  531 => 176,  527 => 175,  524 => 174,  522 => 173,  519 => 172,  515 => 170,  512 => 161,  510 => 160,  506 => 158,  498 => 152,  492 => 149,  485 => 145,  479 => 142,  472 => 138,  459 => 130,  454 => 127,  445 => 125,  436 => 124,  433 => 123,  422 => 121,  418 => 120,  402 => 117,  398 => 116,  394 => 115,  390 => 114,  386 => 113,  382 => 112,  372 => 111,  366 => 110,  360 => 109,  355 => 108,  351 => 107,  343 => 106,  338 => 103,  332 => 102,  324 => 100,  316 => 98,  313 => 97,  309 => 96,  304 => 94,  300 => 92,  294 => 91,  286 => 89,  278 => 87,  275 => 86,  271 => 85,  266 => 83,  260 => 82,  255 => 80,  251 => 79,  247 => 77,  245 => 76,  241 => 75,  235 => 72,  226 => 67,  222 => 65,  218 => 63,  216 => 62,  208 => 58,  204 => 56,  200 => 54,  198 => 53,  192 => 49,  186 => 48,  180 => 47,  174 => 46,  166 => 44,  158 => 42,  155 => 41,  150 => 40,  142 => 38,  134 => 36,  131 => 35,  126 => 34,  118 => 32,  110 => 30,  107 => 29,  103 => 28,  99 => 27,  90 => 23,  84 => 20,  80 => 19,  76 => 18,  71 => 17,  68 => 16,  65 => 15,  62 => 14,  59 => 13,  56 => 12,  53 => 11,  51 => 10,  46 => 9,  43 => 8,  32 => 6,  28 => 5,  22 => 2,  19 => 1,);
     }
 }
 /* */
@@ -844,19 +854,48 @@ class __TwigTemplate_f33c200628382badfccecf941be19bb88fdb11a058e8a77f064417fd18b
 /*                 <div class="product-details">*/
 /*                   <div class="caption">*/
 /*                     <h4 class="name"><a href="{{ product.href }}">{{ product.name }}</a></h4>*/
-/*                     <p class="description">{{ product.description }}</p>*/
-/*                     {% if product.price %}*/
-/*                       <div class="price">*/
-/*                         {% if not product.special %}*/
-/*                           {{ product.price }}*/
-/*                         {% else %}*/
-/*                           <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>*/
+/*                         */
+/*                         <div class="styled__PricesContainer">*/
+/*                             <div class="styled__PriceGridRow">*/
+/*                                 <p class="styled__PriceType-sc">*/
+/*                                     Por menor<span data-dialog="El precio por menor es a partir de 1mt." class="tooltip-info-am"><span></span></span>*/
+/*                                 </p>*/
+/*                                 <p class="styled__ListPrice-sc-"></p>*/
+/*                                 <p class="styled__BestPrice-sc-">{{ product.price }}</p>*/
+/*                             </div>*/
+/*                             <div class="styled__PriceGridRow">*/
+/*                                 <p class="styled__PriceType-sc">*/
+/*                                     Por mayor<span data-dialog="El precio por mayor es a partir de los {{product.all_prices.por_mayor.quantity}}mts." class="tooltip-info-am"><span></span></span>*/
+/*                                 </p>*/
+/*                                 <p class="styled__ListPrice-sc-"></p>*/
+/*                                 <p class="styled__BestPrice-sc-">{{product.all_prices.por_mayor.price}}</p>*/
+/*                             </div>*/
+/*                             <div class="styled__PriceGridRow">*/
+/*                                 <p class="styled__PriceType-sc">*/
+/*                                    Por pieza<span data-dialog="El precio por pieza es a partir de los {{product.all_prices.por_pieza.quantity}}mts" class="tooltip-info-am"><span></span></span>*/
+/*                                 </p>*/
+/*                                 <p class="styled__ListPrice-sc-"></p>*/
+/*                                 <p class="styled__BestPrice-sc-">{{product.all_prices.por_pieza.price}}</p>*/
+/*                             </div>*/
+/*                         </div>*/
+/*                         */
+/*                         <p class="description">*/
+/*                             {# {{ product.description }} #}*/
+/*                         </p>*/
+/*                         */
+/*                         {% if product.price %}*/
+/*                             <div class="price">*/
+/*                                 {# {% if not product.special %}*/
+/*                                     {{ product.price }}*/
+/*                                 {% else %}*/
+/*                                     <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>*/
+/*                                 {% endif %}*/
+/*                                 {% if product.tax %}*/
+/*                                     <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>*/
+/*                                 {% endif %} #}*/
+/*                             </div>*/
 /*                         {% endif %}*/
-/*                         {% if product.tax %}*/
-/*                           <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>*/
-/*                         {% endif %}*/
-/*                       </div>*/
-/*                     {% endif %}*/
+/*                     */
 /*                     {% if product.rating %}*/
 /*                       <div class="rating">*/
 /*                         {% for i in 1..5 %}*/

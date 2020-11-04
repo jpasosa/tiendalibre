@@ -273,94 +273,109 @@ $context["section"], "items", array())) {
                     echo "\">";
                     echo $this->getAttribute($context["product"], "name", array());
                     echo "</a></div>
-                          <div class=\"description\">";
-                    // line 51
-                    echo $this->getAttribute($context["product"], "description", array());
-                    echo "</div>
-                          ";
-                    // line 52
-                    if ($this->getAttribute($context["product"], "price", array())) {
-                        // line 53
-                        echo "                            <div class=\"price\">
-                              ";
-                        // line 54
-                        if ( !$this->getAttribute($context["product"], "special", array())) {
-                            // line 55
-                            echo "                                ";
-                            echo $this->getAttribute($context["product"], "price", array());
-                            echo "
-                              ";
-                        } else {
-                            // line 57
-                            echo "                                <span class=\"price-old\">";
-                            echo $this->getAttribute($context["product"], "price", array());
-                            echo "</span> <span class=\"price-new\" ";
-                            if ($this->getAttribute($context["product"], "date_end", array())) {
-                                echo "data-end-date=\"";
-                                echo $this->getAttribute($context["product"], "date_end", array());
-                                echo "\"";
-                            }
-                            echo ">";
-                            echo $this->getAttribute($context["product"], "special", array());
-                            echo "</span>
-                              ";
-                        }
-                        // line 59
-                        echo "                              ";
-                        if ($this->getAttribute($context["product"], "tax", array())) {
-                            // line 60
-                            echo "                                <span class=\"price-tax\">";
-                            echo (isset($context["text_tax"]) ? $context["text_tax"] : null);
-                            echo " ";
-                            echo $this->getAttribute($context["product"], "tax", array());
-                            echo "</span>
-                              ";
-                        }
-                        // line 62
-                        echo "                            </div>
-                          ";
-                    }
+                            
+
+                            <div class=\"styled__PricesContainer\">
+                                <div class=\"styled__PriceGridRow\">
+                                    <p class=\"styled__PriceType-sc\">
+                                        Por menor<span data-dialog=\"El precio por menor es a partir de 1mt.\" class=\"tooltip-info-am\"><span></span></span>
+                                    </p>
+                                    <p class=\"styled__ListPrice-sc-\"></p>
+                                    <p class=\"styled__BestPrice-sc-\">";
+                    // line 59
+                    echo $this->getAttribute($context["product"], "price", array());
+                    echo "</p>
+                                </div>
+                                
+                                <div class=\"styled__PriceGridRow\">
+                                    <p class=\"styled__PriceType-sc\">
+                                        Por mayor<span data-dialog=\"El precio por mayor es a partir de los ";
                     // line 64
-                    echo "                          ";
+                    echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_mayor", array()), "quantity", array());
+                    echo "mts.\" class=\"tooltip-info-am\"><span></span></span>
+                                    </p>
+                                    <p class=\"styled__ListPrice-sc-\"></p>
+                                    <p class=\"styled__BestPrice-sc-\">";
+                    // line 67
+                    echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_mayor", array()), "price", array());
+                    echo "</p>
+                                </div>
+
+
+                                <div class=\"styled__PriceGridRow\">
+                                    <p class=\"styled__PriceType-sc\">
+                                        Por pieza<span data-dialog=\"El precio por pieza es a partir de los ";
+                    // line 73
+                    echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_pieza", array()), "quantity", array());
+                    echo "mts\" class=\"tooltip-info-am\"><span></span></span>
+                                    </p>
+                                    <p class=\"styled__ListPrice-sc-\"></p>
+                                    <p class=\"styled__BestPrice-sc-\">";
+                    // line 76
+                    echo $this->getAttribute($this->getAttribute($this->getAttribute($context["product"], "all_prices", array()), "por_pieza", array()), "price", array());
+                    echo "</p>
+                                </div>
+                            </div>
+
+
+                            <div class=\"description\">
+                                ";
+                    // line 83
+                    echo "                            </div>
+                          
+                            ";
+                    // line 85
+                    if ($this->getAttribute($context["product"], "price", array())) {
+                        // line 86
+                        echo "                                <div class=\"price\">
+                                    ";
+                        // line 95
+                        echo "                                </div>
+                            ";
+                    }
+                    // line 97
+                    echo "                          
+                          ";
+                    // line 98
                     if ($this->getAttribute($context["product"], "rating", array())) {
-                        // line 65
+                        // line 99
                         echo "                            <div class=\"rating\">
                               ";
-                        // line 66
+                        // line 100
                         $context['_parent'] = $context;
                         $context['_seq'] = twig_ensure_traversable(range(1, 5));
                         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                            // line 67
+                            // line 101
                             echo "                                ";
                             if (($this->getAttribute($context["product"], "rating", array()) < $context["i"])) {
-                                // line 68
+                                // line 102
                                 echo "                                  <span class=\"fa fa-stack\"><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
                                 ";
                             } else {
-                                // line 70
+                                // line 104
                                 echo "                                  <span class=\"fa fa-stack\"><i class=\"fa fa-star fa-stack-2x\"></i><i class=\"fa fa-star-o fa-stack-2x\"></i></span>
                                 ";
                             }
-                            // line 72
+                            // line 106
                             echo "                              ";
                         }
                         $_parent = $context['_parent'];
                         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
                         $context = array_intersect_key($context, $_parent) + $_parent;
-                        // line 73
+                        // line 107
                         echo "                            </div>
                           ";
                     }
-                    // line 75
+                    // line 109
                     echo "                        </div>
                         <div class=\"button-group\">
                           ";
-                    // line 77
+                    // line 111
                     if (call_user_func_array($this->env->getFunction('staticCall')->getCallable(), array("Journal2Utils", "isEnquiryProduct", array(0 => null, 1 => $context["product"])))) {
-                        // line 78
+                        // line 112
                         echo "                            <div class=\"cart enquiry-button\">
                               <a href=\"javascript:Journal.openPopup('";
-                        // line 79
+                        // line 113
                         echo $this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "enquiry_popup_code"), "method");
                         echo "', '";
                         echo $this->getAttribute($context["product"], "product_id", array());
@@ -376,14 +391,14 @@ $context["section"], "items", array())) {
                             </div>
                           ";
                     } else {
-                        // line 82
+                        // line 116
                         echo "                            <div class=\"cart ";
                         if (($this->getAttribute($context["product"], "labels", array()) && $this->getAttribute($this->getAttribute($context["product"], "labels", array()), "outofstock", array()))) {
                             echo " outofstock ";
                         }
                         echo "\">
                               <a onclick=\"addToCart('";
-                        // line 83
+                        // line 117
                         echo $this->getAttribute($context["product"], "product_id", array());
                         echo "', '";
                         echo $this->getAttribute($context["product"], "minimum", array());
@@ -395,7 +410,7 @@ $context["section"], "items", array())) {
                             </div>
                           ";
                     }
-                    // line 86
+                    // line 120
                     echo "                          <div class=\"wishlist\"><a onclick=\"addToWishList('";
                     echo $this->getAttribute($context["product"], "product_id", array());
                     echo "');\" class=\"hint--top\" data-hint=\"";
@@ -404,7 +419,7 @@ $context["section"], "items", array())) {
                     echo (isset($context["button_wishlist"]) ? $context["button_wishlist"] : null);
                     echo "</span></a></div>
                           <div class=\"compare\"><a onclick=\"addToCompare('";
-                    // line 87
+                    // line 121
                     echo $this->getAttribute($context["product"], "product_id", array());
                     echo "');\" class=\"hint--top\" data-hint=\"";
                     echo (isset($context["button_compare"]) ? $context["button_compare"] : null);
@@ -420,31 +435,31 @@ $context["section"], "items", array())) {
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['product'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 93
+                // line 127
                 echo "              </div>
             </div>
             ";
-                // line 95
+                // line 129
                 if (((isset($context["arrows"]) ? $context["arrows"] : null) != "none")) {
-                    // line 96
+                    // line 130
                     echo "              <div class=\"swiper-button-next\"></div>
               <div class=\"swiper-button-prev\"></div>
             ";
                 }
-                // line 99
+                // line 133
                 echo "          </div>
           ";
-                // line 100
+                // line 134
                 if ((isset($context["bullets"]) ? $context["bullets"] : null)) {
-                    // line 101
+                    // line 135
                     echo "            <div class=\"swiper-pagination\"></div>
           ";
                 }
-                // line 103
+                // line 137
                 echo "        </div>
       ";
             }
-            // line 105
+            // line 139
             echo "    ";
             ++$context['loop']['index0'];
             ++$context['loop']['index'];
@@ -458,17 +473,17 @@ $context["section"], "items", array())) {
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['section'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 106
+        // line 140
         echo "
     <script>
       (function () {
         \$('#carousel-";
-        // line 109
+        // line 143
         echo (isset($context["module"]) ? $context["module"] : null);
         echo " .htabs a.atab').tabs();
 
         var grid = \$.parseJSON('";
-        // line 111
+        // line 145
         echo twig_jsonencode_filter((isset($context["grid"]) ? $context["grid"] : null));
         echo "');
 
@@ -494,7 +509,7 @@ $context["section"], "items", array())) {
         var current = null;
 
         \$('#carousel-";
-        // line 134
+        // line 168
         echo (isset($context["module"]) ? $context["module"] : null);
         echo " .htabs a.atab').click(function () {
           if (this === current) {
@@ -508,11 +523,11 @@ $context["section"], "items", array())) {
             slidesPerGroup: grid[4][1],
             breakpoints: breakpoints,
             spaceBetween: parseInt('";
-        // line 145
+        // line 179
         echo (isset($context["spacing"]) ? $context["spacing"] : null);
         echo "', 10),
             pagination: ";
-        // line 146
+        // line 180
         if ((isset($context["bullets"]) ? $context["bullets"] : null)) {
             echo " \$(\$(this).attr('href')).find('.swiper-pagination') ";
         } else {
@@ -521,7 +536,7 @@ $context["section"], "items", array())) {
         echo ",
             paginationClickable: true,
             nextButton: ";
-        // line 148
+        // line 182
         if (((isset($context["arrows"]) ? $context["arrows"] : null) != "none")) {
             echo " \$(\$(this).attr('href')).find('.swiper-button-next') ";
         } else {
@@ -529,7 +544,7 @@ $context["section"], "items", array())) {
         }
         echo ",
             prevButton: ";
-        // line 149
+        // line 183
         if (((isset($context["arrows"]) ? $context["arrows"] : null) != "none")) {
             echo " \$(\$(this).attr('href')).find('.swiper-button-prev') ";
         } else {
@@ -537,11 +552,11 @@ $context["section"], "items", array())) {
         }
         echo ",
             autoplay: ";
-        // line 150
+        // line 184
         echo (((isset($context["autoplay"]) ? $context["autoplay"] : null)) ? ((isset($context["autoplay"]) ? $context["autoplay"] : null)) : (0));
         echo ",
             autoplayStopOnHover: ";
-        // line 151
+        // line 185
         if ((isset($context["pause_on_hover"]) ? $context["pause_on_hover"] : null)) {
             echo " true ";
         } else {
@@ -549,11 +564,11 @@ $context["section"], "items", array())) {
         }
         echo ",
             speed: ";
-        // line 152
+        // line 186
         echo (isset($context["slide_speed"]) ? $context["slide_speed"] : null);
         echo ",
             touchEventsTarget: ";
-        // line 153
+        // line 187
         if ((isset($context["touch_drag"]) ? $context["touch_drag"] : null)) {
             echo " 'container' ";
         } else {
@@ -567,9 +582,9 @@ $context["section"], "items", array())) {
           \$(\$(this).attr('href') + ' .swiper-container').swiper(opts);
 
           ";
-        // line 160
+        // line 194
         if (($this->getAttribute($this->getAttribute((isset($context["journal2"]) ? $context["journal2"] : null), "settings", array()), "get", array(0 => "show_countdown", 1 => "never"), "method") != "never")) {
-            // line 161
+            // line 195
             echo "          \$(\$(this).attr('href') + ' .product-grid-item > div').each(function () {
             var \$new = \$(this).find('.price-new');
             if (\$new.length && \$new.attr('data-end-date')) {
@@ -579,22 +594,22 @@ $context["section"], "items", array())) {
           });
           ";
         }
-        // line 169
+        // line 203
         echo "
           if (!Journal.isFlexboxSupported) {
             Journal.equalHeight(\$('#carousel-";
-        // line 171
+        // line 205
         echo (isset($context["module"]) ? $context["module"] : null);
         echo " .product-grid-item'), '.name');
             Journal.equalHeight(\$('#carousel-";
-        // line 172
+        // line 206
         echo (isset($context["module"]) ? $context["module"] : null);
         echo " .product-grid-item'), '.description');
           }
         });
 
         \$('#carousel-";
-        // line 176
+        // line 210
         echo (isset($context["module"]) ? $context["module"] : null);
         echo " .htabs a.atab[href=\"#carousel-";
         echo (isset($context["module"]) ? $context["module"] : null);
@@ -620,7 +635,7 @@ $context["section"], "items", array())) {
 
     public function getDebugInfo()
     {
-        return array (  598 => 176,  591 => 172,  587 => 171,  583 => 169,  573 => 161,  571 => 160,  557 => 153,  553 => 152,  545 => 151,  541 => 150,  533 => 149,  525 => 148,  516 => 146,  512 => 145,  498 => 134,  472 => 111,  467 => 109,  462 => 106,  448 => 105,  444 => 103,  440 => 101,  438 => 100,  435 => 99,  430 => 96,  428 => 95,  424 => 93,  408 => 87,  399 => 86,  387 => 83,  380 => 82,  364 => 79,  361 => 78,  359 => 77,  355 => 75,  351 => 73,  345 => 72,  341 => 70,  337 => 68,  334 => 67,  330 => 66,  327 => 65,  324 => 64,  320 => 62,  312 => 60,  309 => 59,  295 => 57,  289 => 55,  287 => 54,  284 => 53,  282 => 52,  278 => 51,  272 => 50,  268 => 48,  264 => 46,  255 => 44,  246 => 43,  243 => 42,  232 => 40,  228 => 39,  213 => 36,  209 => 29,  205 => 28,  201 => 27,  197 => 26,  193 => 25,  176 => 23,  169 => 22,  167 => 21,  159 => 20,  148 => 19,  144 => 18,  137 => 16,  129 => 14,  126 => 13,  109 => 12,  106 => 11,  92 => 10,  82 => 8,  80 => 7,  71 => 6,  68 => 5,  51 => 4,  43 => 3,  19 => 1,);
+        return array (  613 => 210,  606 => 206,  602 => 205,  598 => 203,  588 => 195,  586 => 194,  572 => 187,  568 => 186,  560 => 185,  556 => 184,  548 => 183,  540 => 182,  531 => 180,  527 => 179,  513 => 168,  487 => 145,  482 => 143,  477 => 140,  463 => 139,  459 => 137,  455 => 135,  453 => 134,  450 => 133,  445 => 130,  443 => 129,  439 => 127,  423 => 121,  414 => 120,  402 => 117,  395 => 116,  379 => 113,  376 => 112,  374 => 111,  370 => 109,  366 => 107,  360 => 106,  356 => 104,  352 => 102,  349 => 101,  345 => 100,  342 => 99,  340 => 98,  337 => 97,  333 => 95,  330 => 86,  328 => 85,  324 => 83,  315 => 76,  309 => 73,  300 => 67,  294 => 64,  286 => 59,  272 => 50,  268 => 48,  264 => 46,  255 => 44,  246 => 43,  243 => 42,  232 => 40,  228 => 39,  213 => 36,  209 => 29,  205 => 28,  201 => 27,  197 => 26,  193 => 25,  176 => 23,  169 => 22,  167 => 21,  159 => 20,  148 => 19,  144 => 18,  137 => 16,  129 => 14,  126 => 13,  109 => 12,  106 => 11,  92 => 10,  82 => 8,  80 => 7,  71 => 6,  68 => 5,  51 => 4,  43 => 3,  19 => 1,);
     }
 }
 /* <div id="carousel-{{ module }}" class="carousel-{{ module_id }} box journal-carousel carousel-product {{ disable_on_classes | join(' ') }} {{ show_title_class }} {% if bullets %} bullets-on {% endif %} {% if arrows == 'top' %} arrows-top {% endif %} {{ gutter_on_class }}" style="{{ css }}">*/
@@ -673,19 +688,53 @@ $context["section"], "items", array())) {
 /*                       <div class="product-details">*/
 /*                         <div class="caption">*/
 /*                           <div class="name"><a href="{{ product.href }}">{{ product.name }}</a></div>*/
-/*                           <div class="description">{{ product.description }}</div>*/
-/*                           {% if product.price %}*/
-/*                             <div class="price">*/
-/*                               {% if not product.special %}*/
-/*                                 {{ product.price }}*/
-/*                               {% else %}*/
-/*                                 <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>*/
-/*                               {% endif %}*/
-/*                               {% if product.tax %}*/
-/*                                 <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>*/
-/*                               {% endif %}*/
+/*                             */
+/* */
+/*                             <div class="styled__PricesContainer">*/
+/*                                 <div class="styled__PriceGridRow">*/
+/*                                     <p class="styled__PriceType-sc">*/
+/*                                         Por menor<span data-dialog="El precio por menor es a partir de 1mt." class="tooltip-info-am"><span></span></span>*/
+/*                                     </p>*/
+/*                                     <p class="styled__ListPrice-sc-"></p>*/
+/*                                     <p class="styled__BestPrice-sc-">{{ product.price }}</p>*/
+/*                                 </div>*/
+/*                                 */
+/*                                 <div class="styled__PriceGridRow">*/
+/*                                     <p class="styled__PriceType-sc">*/
+/*                                         Por mayor<span data-dialog="El precio por mayor es a partir de los {{product.all_prices.por_mayor.quantity}}mts." class="tooltip-info-am"><span></span></span>*/
+/*                                     </p>*/
+/*                                     <p class="styled__ListPrice-sc-"></p>*/
+/*                                     <p class="styled__BestPrice-sc-">{{product.all_prices.por_mayor.price}}</p>*/
+/*                                 </div>*/
+/* */
+/* */
+/*                                 <div class="styled__PriceGridRow">*/
+/*                                     <p class="styled__PriceType-sc">*/
+/*                                         Por pieza<span data-dialog="El precio por pieza es a partir de los {{product.all_prices.por_pieza.quantity}}mts" class="tooltip-info-am"><span></span></span>*/
+/*                                     </p>*/
+/*                                     <p class="styled__ListPrice-sc-"></p>*/
+/*                                     <p class="styled__BestPrice-sc-">{{product.all_prices.por_pieza.price}}</p>*/
+/*                                 </div>*/
 /*                             </div>*/
-/*                           {% endif %}*/
+/* */
+/* */
+/*                             <div class="description">*/
+/*                                 {# {{ product.description }} #}*/
+/*                             </div>*/
+/*                           */
+/*                             {% if product.price %}*/
+/*                                 <div class="price">*/
+/*                                     {# {% if not product.special %}*/
+/*                                         {{ product.price }}*/
+/*                                     {% else %}*/
+/*                                         <span class="price-old">{{ product.price }}</span> <span class="price-new" {% if product.date_end %}data-end-date="{{ product.date_end }}"{% endif %}>{{ product.special }}</span>*/
+/*                                     {% endif %}*/
+/*                                     {% if product.tax %}*/
+/*                                         <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>*/
+/*                                     {% endif %} #}*/
+/*                                 </div>*/
+/*                             {% endif %}*/
+/*                           */
 /*                           {% if product.rating %}*/
 /*                             <div class="rating">*/
 /*                               {% for i in 1..5 %}*/

@@ -224,6 +224,26 @@ class ControllerProductSearch extends Controller {
 					$rating = false;
 				}
 
+				// descuentos en los productos para manejar por pieza y por mayor
+                $discounts = $this->model_catalog_product->getProductDiscounts($result['product_id']);
+                $data['discounts'] = array();
+                $all_prices = array();
+                foreach ($discounts as $k => $discount)
+                {
+                    if ($k == 0) {
+                        $all_prices['por_mayor']['quantity'] = $discount['quantity'];
+                        $all_prices['por_mayor']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+                    } else {
+                        $all_prices['por_pieza']['quantity'] = $discount['quantity']; 
+    					$all_prices['por_pieza']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+                    }
+                }
+                // fin descuentos
+
+
+
 
                 $date_end = false;
                 if (strpos($this->config->get('config_template'), 'journal2') === 0 && $special && $this->journal2->settings->get('show_countdown', 'never') !== 'never') {
@@ -285,6 +305,7 @@ class ControllerProductSearch extends Controller {
 
                 'product_attributes'=> $prod_attributes,
             
+                    'all_prices'    => $all_prices,
 					'thumb'       => $image,
 
                 'thumb2'       => $image2,

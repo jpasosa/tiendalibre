@@ -1,6 +1,7 @@
 <?php
 class ControllerProductCategory extends Controller {
 	public function index() {
+
 		$this->load->language('product/category');
 
 		$this->load->model('catalog/category');
@@ -198,6 +199,7 @@ class ControllerProductCategory extends Controller {
 				}
 
 
+
 				// atributos del producto
                 $this->load->model('catalog/product');
 
@@ -229,6 +231,27 @@ class ControllerProductCategory extends Controller {
                     $prod_attributes = array();
                 }
 				// fin de los atributos del producto
+
+
+                // descuentos en los productos para manejar por pieza y por mayor
+                $discounts = $this->model_catalog_product->getProductDiscounts($result['product_id']);
+                $data['discounts'] = array();
+                $all_prices = array();
+                foreach ($discounts as $k => $discount)
+                {
+                    if ($k == 0) {
+                        $all_prices['por_mayor']['quantity'] = $discount['quantity'];
+                        $all_prices['por_mayor']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+                    } else {
+                        $all_prices['por_pieza']['quantity'] = $discount['quantity']; 
+    					$all_prices['por_pieza']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+
+                    }
+                }
+                // fin descuentos
+
+
 
 
                 $date_end = false;
@@ -292,6 +315,7 @@ class ControllerProductCategory extends Controller {
                 'product_attributes'=> $prod_attributes,
             
 					'product_attributes'=> $prod_attributes,
+                    'all_prices'    => $all_prices,
 					'thumb'       => $image,
 
                 'thumb2'       => $image2,
@@ -309,7 +333,8 @@ class ControllerProductCategory extends Controller {
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
-					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
+					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url),
+					'discount'	  => 'agrego un parametro que es el descuento'
 				);
 			}
 

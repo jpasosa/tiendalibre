@@ -3,6 +3,7 @@ class ControllerProductProduct extends Controller {
 	private $error = array();
 
 	public function index() {
+
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
@@ -340,8 +341,20 @@ $data['thumb_fixed'] = $this->model_tool_image->resize($product_info['image'], $
 			$discounts = $this->model_catalog_product->getProductDiscounts($this->request->get['product_id']);
 
 			$data['discounts'] = array();
+			$data['all_prices']['por_mayor']['quantity'] = '1';
+			$data['all_prices']['por_mayor']['price'] = '0,00';
+			$data['all_prices']['por_pieza']['quantity'] = '1';
+			$data['all_prices']['por_pieza']['price'] = '0,00';
+			foreach ($discounts as $k => $discount)
+			{
+				if ($k == 0) {
+					$data['all_prices']['por_mayor']['quantity'] = $discount['quantity']; 
+					$data['all_prices']['por_mayor']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']); 
+				} else {
+					$data['all_prices']['por_pieza']['quantity'] = $discount['quantity']; 
+					$data['all_prices']['por_pieza']['price'] = $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']); 
+				}
 
-			foreach ($discounts as $discount) {
 				$data['discounts'][] = array(
 					'quantity' => $discount['quantity'],
 					'price'    => $this->currency->format($this->tax->calculate($discount['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency'])
@@ -382,6 +395,11 @@ $data['thumb_fixed'] = $this->model_tool_image->resize($product_info['image'], $
 					'required'             => $option['required']
 				);
 			}
+
+			// $log_prety = '<pre>' . print_r($data['options'], true) . '</pre>';
+			// var_dump($log_prety);
+			// die();
+		
 
 			if ($product_info['minimum']) {
 				$data['minimum'] = $product_info['minimum'];
