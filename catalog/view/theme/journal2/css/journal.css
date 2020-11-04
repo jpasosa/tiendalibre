@@ -9,23 +9,120 @@
 /*romi-descripcion*/
 @import url('https://fonts.googleapis.com/css2?family=Meera+Inimai&display=swap');
 
+.styled__PricesContainer {
+	width: 100%;
+	margin-bottom: 12px;
+}
+.styled__ListPrice-sc-{
+	color: rgb(155, 155, 155);
+	font-size: 22px;
+	letter-spacing: 0.5px;
+	line-height: 14px;
+	text-decoration: line-through;
+	text-align: right;
+	margin-right: 12px;
+}
+
+.styled__PriceGridRow :not(:last-child) {
+	border-bottom: none;
+}
+.styled__PriceGridRow {
+	width: 97%;
+	display: grid;
+	grid-template-columns: 120fr 80fr 70fr;
+	padding: 8px 2px;
+	-moz-box-align: center;
+	align-items: center;
+	align-content: center;
+}
+.styled__PriceType-sc .tooltip-info-am .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: white;
+  color: #fff;
+  text-align: center;
+   /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.styled__PriceType-sc .tooltip-info-am:hover .tooltiptext {
+  visibility: visible;width: 100px;
+}
+	.styled__PriceType-sc .tooltip-info-am:after {
+    content: attr(data-dialog);
+    position: absolute;
+    z-index: 1;
+    left: 0px;
+    bottom: 35px;
+    width: 100px;
+    background-color: #000000;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 0.4s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
+    border-radius: 4px;
+    padding: 8px 5px 5px 5px;
+    color: #f9f9f9;
+    line-height: 14px;
+	font-family: 'Meera Inimai', sans-serif;
+	font-size: 12px
+}
+
+.styled__PriceType-sc .tooltip-info-am:hover {
+    cursor: help;
+	font-family: 'Meera Inimai', sans-serif;
+}
+
+.styled__PriceType-sc .tooltip-info-am:hover:after {
+    visibility:  visible;
+    opacity: 0.9;
+	font-family: 'Meera Inimai', sans-serif;
+}
+
+.styled__PriceType-sc {
+	color: rgb(0, 0, 0);
+	font-size: 12px;
+	max-width: 90px;
+	line-height: 14px;
+	display: flex;
+	-moz-box-pack: justify;
+	justify-content: space-between;
+}
+.styled__BestPrice-sc- {
+	color: rgb(38, 38, 38);
+	font-size: 14px;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	line-height: 17px;
+	text-align: right;
+}
+.table_specifications {
+	margin-left: 300px!important;
+}
+#button-cart, .product-info .right .cart div .button.enquiry-button, .quickview #more-details {
+
+	line-height: 30px!important;
+	vertical-align: middle!important;
+
+}
 
 /* Tooltip container */
 .tooltip-info-am {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  border-bottom: none; /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
 .tooltip-info-am .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 100px;
   background-color: black;
   color: #fff;
   text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
+ 
  
   /* Position the tooltip text - see examples below! */
   position: absolute;
@@ -34,7 +131,7 @@
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip-info-am:hover .tooltiptext {
-  visibility: visible;
+  visibility: visible;width: 100px;
 }
 div.price-container-tiered-am p.old-price-am {
     margin: 3px 5px 0 0;
@@ -50,11 +147,10 @@ div.price-box-am .price-title-am span,
 }
 .subtitulo{
 	
-	font-size: 20px;
-   color: #000 !important;
-	    text-align: left;
-    padding: 4px 0 0 0;
-    margin: 7px 0 0 0;
+	font-size: 14px;
+    color: #000 !important;
+	text-align: left;
+    padding: 0px 0px 24px 0px;
 	font-weight: 400;
 	font-family: 'Meera Inimai', sans-serif;
 	
@@ -62,7 +158,9 @@ div.price-box-am .price-title-am span,
 @media (max-width:767px) {
 	
 	
-	
+	.table_specifications {
+	margin-left: 0px!important;
+}
 	
 	
     div.price-box-am .price-title-am span,
@@ -93,7 +191,6 @@ ul.tiered-prices-list-am {
 }
 
 ul.tiered-prices-list-am li {
-    padding: 2px 0 10px 0;
 	list-style: none;
 }
 
@@ -115,7 +212,12 @@ div.price-title-am span.price-subtitle-am {
     color: #000;
     font-size: 14px;
 }
-
+.table_specifications{
+margin:0 auto;
+text-align:left;
+	max-width: 600px!important;
+	padding: 10px;
+}
 
 @media (max-width:767px) {
     .products-list-am .price-title-am .price-subtitle-am {
@@ -131,6 +233,12 @@ div.price-title-am span.price-subtitle-am {
 }
 
 @media (min-width:767px) {
+	
+	.table_specifications {
+	margin-left: 300px!important;
+}
+	
+	
     .price-title-am .price-subtitle.mobile-am {
         display: none !important;
     }
@@ -140,15 +248,25 @@ div.price-container-regular-am,
 div.price-container-tiered-am {
     float: right;
     text-align: right;
-    padding: 10px 0 0 0;
+    padding: 20px 0 0 0;
 }
 @media (max-width:767px) {
+	
+	.table_specifications {
+	margin-left: 0px!important;
+}
+	
     div.price-container-regular-am,
     div.price-container-tiered-am {
-        padding: 9px 0;
+        padding: 20px 0;
     }
 }
+ .product-info-container-am ul.tiered-prices-list-am li {
+               padding: 20px 0;
 
+  
+
+    }
 div.price-container-tiered-am span.tiered-price-am {
     font-size: 19px;
 }
@@ -156,9 +274,11 @@ div.price-container-tiered-am span.tiered-price-am {
 span.price-disclaimer-am {
     display: block;
     text-align: right;
-    font-size: 11px;
+    font-size: 16px;
     color: #d0d0d1;
-    margin-bottom: 3px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+padding-top: 10px;
 }
 
 span.highlighted-am {
@@ -167,6 +287,7 @@ span.highlighted-am {
 
 div.price-title-am {
     position: relative;
+	padding-top: 10px;
 }
 
 .tooltip-info-am span {
@@ -177,8 +298,10 @@ div.price-title-am {
     z-index: 0;
     top: 1px;
     left: 67px;*/
-    background: url("http://telasunitex.com.ar/telas_testing/image/icon_info.png") no-repeat 0px 0px;
+    background: url("http://telasunitex.com.ar/telas_testing_new/image/icon_info.png") no-repeat 0px 0px;
     opacity: .7;
+	color: rgb(155, 155, 155);
+border: 1px solid rgb(242, 242, 242);
 }
 
 .tooltip-info-am:after {
@@ -187,7 +310,7 @@ div.price-title-am {
     z-index: 1;
     left: 0px;
     bottom: 35px;
-    width: 250px;
+    width: 200px;
     background-color: #000000;
     opacity: 0;
     visibility: hidden;
@@ -197,19 +320,24 @@ div.price-title-am {
     padding: 10px 18px 10px 18px;
     color: #f9f9f9;
     line-height: 14px;
+	font-family: 'Meera Inimai', sans-serif;
+	font-size: 12px
 }
 
 .tooltip-info-am:hover {
     cursor: help;
+	font-family: 'Meera Inimai', sans-serif;
 }
 
 .tooltip-info-am:hover:after {
     visibility:  visible;
     opacity: 0.9;
+	font-family: 'Meera Inimai', sans-serif;
 }
 
 .product-detail-tooltip-am span {
     left: 70px;
+	font-family: 'Meera Inimai', sans-serif;
 }
 
 .grouped-main-container-am {
@@ -250,7 +378,7 @@ div.price-box-am .price-title-am span,
     }
 
     .products-list-am .price-title-am {
-        padding-top: 10px;
+        padding-top: 20px;
     }
 
     .products-list-am .price-title-am .tooltip-info-am {
@@ -276,15 +404,14 @@ div.product-info-container-am ul.tiered-prices-list-am li p.old-price-am {
 }
 
 .product-info-container-am ul.tiered-prices-list-am {
-    border-top: 1px solid #f3f3f3;
+    border-top: 1px solid #818181;
     padding: 0;
-    margin: 5px 0 5px 0;
+    margin: 9px 0 9px 0;
 }
 
 .product-info-container-am ul.tiered-prices-list-am li {
-    border-bottom: 1px solid #f3f3f3;
-    padding: 5px 0 5px 0;
-    margin: 0;
+    border-bottom: 1px solid #818181;
+    margin: 0;      
 }
 
 @media (max-width:767px) {
@@ -292,7 +419,8 @@ div.product-info-container-am ul.tiered-prices-list-am li p.old-price-am {
         margin: 0 0 5px;
     }
     .product-info-container-am ul.tiered-prices-list-am li {
-        padding: 0;
+       
+        padding-bottom: 5px;
     }
 }
 
@@ -313,8 +441,40 @@ div.product-info-container-am ul.tiered-prices-list-am li p.old-price-am {
     width: 100%;
     left: 0px;
     bottom: 0px;
+	
 }
+ .uses-container-am {
+	text-align: center!important;
+	font-family: 'Meera Inimai', sans-serif;  
+	font-size: 18px;
+	color: #696969;
+}
+.blockquote-am .inside-am p{
+	text-align: center!important;
+	font-family: 'Meera Inimai', sans-serif!important;  
+	font-size: 14px!important;
+	color: #696969!important;font-weight: 400;
+	padding-bottom: 20px;
+}
+ .text-center h2 {
+	
+	text-align: center;
+	font-weight: 400;
+	font-family: "Meera Inimai";
+	text-transform: uppercase;
+	color: rgb(0, 0, 0);
+	padding-left: 0px;
+	 font-size: 26px;
 
+}
+.attr_especific td {
+	
+	 text-align: left!important;
+	 font-family: 'Meera Inimai', sans-serif;  
+	 font-size: 16px;
+	width: 50%!important;
+	
+}
 @media (max-width:767px) {
     .product-info-container-am .price-title-am span {
         font-size: 16px;
@@ -326,17 +486,18 @@ div.product-info-container-am ul.tiered-prices-list-am li p.old-price-am {
     width: 100%;
     left: 0px;
     bottom: 0px;
+	top: 20px;
 }
  div.product-info-container-am .uses-container-am {
         position: relative;
     }
 .blockquote-am {
     position: relative;
-    border-top: 4px solid #f60
+    border: 0px;
 }
 .blockquote-am .inside-am {
-    padding: 15px;
-    border: 1px solid #eaeaea
+    padding: 5px;
+    border: 0px;
 }
 
 .blockquote-am .inside-am p {
@@ -662,7 +823,7 @@ legend {
   border-width: 0; }
 
 .heading-title {
-  margin-bottom: 20px; }
+  margin-bottom: 1px; }
 
 .secondary-title {
   font-size: 17px;
@@ -673,6 +834,15 @@ legend {
   background-image: none; }
 
 @media only screen and (min-width: 760px) {
+	#button-cart {
+	line-height: 30px !important;
+	vertical-align: middle !important;
+	padding-top: 3px !important;
+}
+	
+	
+	
+	
   .extended-layout #column-left {
     padding: 20px 0 0 0; }
   .extended-layout #column-right {
@@ -826,6 +996,40 @@ ul.breadcrumb {
       display: none; }
 
 @media only screen and (max-width: 500px) {
+	
+	.table_specifications {
+	margin-left: 0px!important;
+}
+#button-cart {
+	line-height: 30px !important;
+	vertical-align: middle !important;
+	padding-top: 3px !important;
+}
+	
+	
+	.attr_especific td {
+	text-align: left !important;
+	font-family: 'Meera Inimai', sans-serif;
+	font-size: 13px;
+	width: 50% !important;
+} .product-info-container-am ul.tiered-prices-list-am li {
+       
+        padding-top: 5px;
+    }
+	.blockquote-am .inside-am p {
+	text-align: center !important;
+	font-family: 'Meera Inimai', sans-serif !important;
+	font-size: 12px !important;
+	color: #696969 !important;
+	font-weight: 400;
+		padding-bottom: 20px;
+}
+	.attr_especific td {
+	text-align: left !important;
+	font-family: 'Meera Inimai', sans-serif;
+	font-size: 13px;
+	width: 50% !important;
+}
   ul.breadcrumb {
     display: -webkit-box !important;
     display: -webkit-flex !important;
