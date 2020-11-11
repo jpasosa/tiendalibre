@@ -407,8 +407,8 @@ class ControllerModuleJournal2Carousel extends Controller {
                         if ($atr['attribute_id'] == ATR_ANCHO) {
                             $atrib['ancho'] = $atr['text'];
 
-                        } else if ($atr['attribute_id'] == ATR_REND) {
-                            $atrib['rendimiento'] = $atr['text'];
+                        // } else if ($atr['attribute_id'] == ATR_REND) {
+                            // $atrib['rendimiento'] = $atr['text'];
 
                         } else if ($atr['attribute_id'] == ATR_PIEZASDE) {
                             $atrib['piezasde'] = $atr['text'];

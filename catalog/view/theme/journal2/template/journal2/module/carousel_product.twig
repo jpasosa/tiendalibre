@@ -23,7 +23,7 @@
                           <a href="{{ product.href }}" {% if product.thumb2 %} class="has-second-image" style="{{ image_border_css }}; background: url('{{ product.thumb2 }}') no-repeat" {% else %} style="{{ image_border_css }}" {% endif %}>
                              <div class="prod_overdata"
                                     data-content='Ancho: {{ product.product_attributes.ancho }}&#xa;
-                                                  Rinde: {{ product.product_attributes.rendimiento }}&#xa;
+                                                  {# Rinde: {{ product.product_attributes.rendimiento }}&#xa; #}
                                                   Piezas de: {{ product.product_attributes.piezasde }}&#xa;
                                                   Peso: {{ product.product_attributes.peso }}&#xa;
                                                   Composición: {{ product.product_attributes.comp }}&#xa;' >
