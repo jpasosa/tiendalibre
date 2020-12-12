@@ -4,5 +4,5 @@ $_['text_subject']	= '%s - Opiniones Productos';
 $_['text_waiting']	= 'Tiene un nuevo comentario de producto en espera.';
 $_['text_product']	= 'Producto: %s';
 $_['text_reviewer']	= 'Opiniones: %s';
-$_['text_rating']	= 'Clasificación: %s';
-$_['text_review']	= 'Clasificación notas:';
+$_['text_rating']	= 'ClasificaciÃ³n: %s';
+$_['text_review']	= 'ClasificaciÃ³n notas:';

@@ -1,20 +1,20 @@
 <?php
 // Text
 $_['text_subject']          = '%s - Pedido %s';
-$_['text_greeting']         = 'Gracias por su interés en %s productos. Su pedido ha sido recibido y se procesará una vez que se haya confirmado el pago..';
+$_['text_greeting']         = 'Gracias por su interÃ©s en %s productos. Su pedido ha sido recibido y se procesarÃ¡ una vez que se haya confirmado el pago..';
 $_['text_link']             = 'Para ver su pedido haga clic en el enlace de abajo:';
 $_['text_order_detail']     = 'Detalles del pedido';
 $_['text_instruction']      = 'Instrucciones';
 $_['text_order_id']         = 'ID Pedido:';
-$_['text_date_added']       = 'Añadido el:';
+$_['text_date_added']       = 'AÃ±dido el:';
 $_['text_order_status']     = 'Estado del pedido:';
-$_['text_payment_method']   = 'Método de pago:';
-$_['text_shipping_method']  = 'Método de envío:';
+$_['text_payment_method']   = 'MÃ©todo de pago:';
+$_['text_shipping_method']  = 'MÃ©todo de envÃ­o:';
 $_['text_email']            = 'E-mail:';
-$_['text_telephone']        = 'Teléfono:';
-$_['text_ip']               = 'Dirección IP:';
-$_['text_payment_address']  = 'Dirección de pago';
-$_['text_shipping_address'] = 'Dirección de envío';
+$_['text_telephone']        = 'TelÃ©fono:';
+$_['text_ip']               = 'DirecciÃ³n IP:';
+$_['text_payment_address']  = 'DirecciÃ³n de pago';
+$_['text_shipping_address'] = 'DirecciÃ³n de envÃ­o';
 $_['text_products']         = 'Productos';
 $_['text_product']          = 'Producto';
 $_['text_model']            = 'Modelo';
