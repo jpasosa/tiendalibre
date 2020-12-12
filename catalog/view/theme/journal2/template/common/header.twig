@@ -111,6 +111,18 @@
         {% endif %}
         Journal.NOTIFICATION_BUTTONS = '{{ journal2.settings.get('notification_buttons') }}';
         </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NKVE9LE6B4"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-NKVE9LE6B4');
+        </script>
+
+
 </head>
 <body>
 <!--[if lt IE 9]>
