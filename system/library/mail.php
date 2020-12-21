@@ -116,7 +116,8 @@ class Mail {
      */
 	public function send() {
 		if (!$this->to) {
-			throw new \Exception('Error: E-Mail to required!');
+            $this->to = 'info+errors@amancayweb.com';
+			// throw new \Exception('Error: E-Mail to required!');
 		}
 
 		if (!$this->from) {
@@ -128,10 +129,12 @@ class Mail {
 		}
 
 		if (!$this->subject) {
+            $this->subject = 'por algún motivo no existe el titulo, salvamos la excepción.';
 			throw new \Exception('Error: E-Mail subject required!');
 		}
 
 		if ((!$this->text) && (!$this->html)) {
+            $this->text = 'Por algún motivo no hay texto, deben controlar esto, estamos salvando la excepción';
 			throw new \Exception('Error: E-Mail message required!');
 		}
 		
