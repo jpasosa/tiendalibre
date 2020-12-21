@@ -2,6 +2,8 @@
 
 echo 'testing....';
 
+phpinfo();
+
 
 
 
